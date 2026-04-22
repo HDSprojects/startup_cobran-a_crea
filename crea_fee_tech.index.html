@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup de Cobrança — CREA-SP, Fee de Sucesso e Tecnologia</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F8F7F2; color: #1a1a18; line-height: 1.6; padding: 24px; }
+  h1 { font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+  .subtitle { font-size: 13px; color: #5F5E5A; margin-bottom: 20px; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tb { padding: 8px 16px; font-size: 13px; border-radius: 20px; border: 1px solid #D3D1C7; background: transparent; color: #5F5E5A; cursor: pointer; font-weight: 400; }
+  .tb.on { background: #fff; color: #1a1a18; font-weight: 500; border-color: #888780; }
+  .pg { display: none; }
+  .pg.on { display: block; }
+  .kgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .kc { background: #fff; border-radius: 10px; padding: 14px 16px; border: 1px solid #E8E6DF; }
+  .kl { font-size: 11px; color: #5F5E5A; margin-bottom: 4px; }
+  .kv { font-size: 22px; font-weight: 500; }
+  .ks { font-size: 11px; color: #888780; margin-top: 3px; }
+  .card { background: #fff; border: 1px solid #E8E6DF; border-radius: 12px; padding: 16px 18px; margin-bottom: 10px; }
+  .ct { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .cb { font-size: 12px; color: #5F5E5A; line-height: 1.65; }
+  .pill { font-size: 11px; padding: 3px 8px; border-radius: 20px; display: inline-block; margin-top: 6px; margin-right: 4px; }
+  .pp { background: #EEEDFE; color: #3C3489; }
+  .pt { background: #E1F5EE; color: #0F6E56; }
+  .pa { background: #FAEEDA; color: #854F0B; }
+  .pg2 { background: #EAF3DE; color: #3B6D11; }
+  .pr { background: #FCEBEB; color: #A32D2D; }
+  .pgr { background: #F1EFE8; color: #5F5E5A; }
+  .hl { background: #EEEDFE; border-radius: 12px; padding: 14px 18px; margin-bottom: 12px; }
+  .ht { font-size: 13px; font-weight: 500; color: #3C3489; margin-bottom: 5px; }
+  .hb { font-size: 12px; color: #534AB7; line-height: 1.6; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .row { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #F1EFE8; font-size: 12px; gap: 10px; }
+  .row:last-child { border-bottom: none; }
+  .rk { color: #5F5E5A; }
+  .rv { font-weight: 500; text-align: right; }
+  .sl-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .sl { font-size: 12px; color: #5F5E5A; min-width: 170px; }
+  .sv { font-size: 12px; font-weight: 500; min-width: 75px; text-align: right; }
+  .rbox { background: #F8F7F2; border-radius: 8px; padding: 12px 14px; }
+  .rbig { font-size: 22px; font-weight: 500; }
+  .rlab { font-size: 11px; color: #5F5E5A; margin-bottom: 3px; }
+  .rgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .tc { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #F1EFE8; }
+  .tc:last-child { border-bottom: none; }
+  .tic { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; }
+  .tct { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+  .tcb { font-size: 12px; color: #5F5E5A; line-height: 1.5; }
+  .alert { border-left: 3px solid #A32D2D; border-radius: 0 12px 12px 0; }
+  .ask { width: 100%; margin-top: 12px; padding: 10px 14px; font-size: 13px; text-align: left; background: transparent; border: 1px solid #D3D1C7; border-radius: 8px; color: #5F5E5A; cursor: pointer; }
+  .ask:hover { background: #F1EFE8; }
+  input[type=range] { flex: 1; accent-color: #534AB7; }
+  @media (max-width: 600px) { .two, .three { grid-template-columns: 1fr; } .rgrid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1>Startup de Cobrança com IA — CREA-SP</h1>
+<p class="subtitle">Potencial da carteira · Modelo de fee de sucesso · Stack de tecnologia</p>
+
+<div class="tabs">
+  <button class="tb on" onclick="sw('potencial')">Potencial CREA-SP</button>
+  <button class="tb" onclick="sw('fee')">Modelo fee de sucesso</button>
+  <button class="tb" onclick="sw('tech')">Stack de tecnologia</button>
+</div>
+
+<!-- ABA 1 -->
+<div id="potencial" class="pg on">
+  <div class="hl">
+    <p class="ht">O maior conselho da América Latina — e praticamente sem cobrança especializada</p>
+    <p class="hb">O CREA-SP fiscaliza engenheiros, agrônomos, geólogos, geógrafos, meteorologistas e tecnólogos em São Paulo. Com mais de 301 mil profissionais inscritos, é o maior conselho de fiscalização do exercício profissional da América Latina. O dado mais relevante: profissionais ficam anos inadimplentes sem receber um único contato estruturado de cobrança — há casos documentados de 6 anos de anuidades acumuladas sem nenhuma ligação do conselho.</p>
+  </div>
+  <div class="kgrid">
+    <div class="kc"><p class="kl">Profissionais inscritos em SP</p><p class="kv">301 mil</p><p class="ks">maior base do CONFEA nacional</p></div>
+    <div class="kc"><p class="kl">Anuidade PF nível superior 2025</p><p class="kv">R$669</p><p class="ks">valor integral sem desconto</p></div>
+    <div class="kc"><p class="kl">Inadimplentes estimados</p><p class="kv">60–105 mil</p><p class="ks">taxa histórica de 20–35%</p></div>
+    <div class="kc"><p class="kl">Unidades de atendimento</p><p class="kv">50+</p><p class="ks">distribuídas por todo SP</p></div>
+  </div>
+  <div class="card">
+    <p class="ct">Por que a inadimplência é tão alta e estrutural</p>
+    <p class="cb">Diferente de uma dívida bancária, a anuidade do CREA não afeta o score de crédito imediatamente nem bloqueia serviços essenciais. Muitos profissionais esquecem, acham que não precisam pagar por não exercer a profissão, ou desconhecem que a dívida acumula mesmo com registro ativo. O CREA-SP não tem estrutura de cobrança ativa — a comunicação é passiva (envio de boleto por e-mail em janeiro) e sem régua de acompanhamento posterior.</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <p class="ct">Carteira PF — foco do piloto</p>
+      <div style="margin-top:6px;">
+        <div class="row"><span class="rk">Anuidade nível superior 2025</span><span class="rv">R$ 669,68</span></div>
+        <div class="row"><span class="rk">Anuidade nível médio 2025</span><span class="rv">R$ 334,84</span></div>
+        <div class="row"><span class="rk">Ticket com 2 anos acumulados</span><span class="rv">R$ 1.200–1.400</span></div>
+        <div class="row"><span class="rk">Ticket com 3+ anos</span><span class="rv">R$ 1.800–2.500+</span></div>
+        <div class="row"><span class="rk">Piso para execução fiscal</span><span class="rv">~R$ 2.500</span></div>
+      </div>
+      <span class="pill pt">Extrajudicial — ideal para IA</span>
+    </div>
+    <div class="card">
+      <p class="ct">Carteira PJ — oportunidade adicional</p>
+      <p class="cb">Empresas de engenharia registradas pagam anuidade calculada conforme o capital social. Inadimplência aqui gera dívida ativa mais rápido e as empresas tendem a regularizar com mais urgência — menor esforço de convencimento, ticket médio maior.</p>
+      <span class="pill pa">Ticket médio maior</span>
+      <span class="pill pp">Alta propensão</span>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Segmentação da carteira por prioridade</p>
+    <div style="margin-top:6px;">
+      <div class="row"><div><strong style="font-size:13px;">Devedores recentes — 1 a 2 anos</strong><br><span style="font-size:11px; color:#5F5E5A;">Maior propensão a pagar. Muitos esqueceram ou tiveram dificuldade pontual.</span></div><span class="pill pg2">Prioridade 1</span></div>
+      <div class="row"><div><strong style="font-size:13px;">Devedores intermediários — 3 a 4 anos</strong><br><span style="font-size:11px; color:#5F5E5A;">Precisam de proposta com desconto e parcelamento atrativo.</span></div><span class="pill pa">Prioridade 2</span></div>
+      <div class="row"><div><strong style="font-size:13px;">Próximos da prescrição — 4,5 a 5 anos</strong><br><span style="font-size:11px; color:#5F5E5A;">Abordagem urgente — prescreve em 5 anos. Janela curta para recuperar.</span></div><span class="pill pr">Prioridade 3</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABA 2 -->
+<div id="fee" class="pg">
+  <div class="hl">
+    <p class="ht">Fee de sucesso: o modelo perfeito para o piloto</p>
+    <p class="hb">O CREA-SP não paga nada se você não recuperar nada. Você recebe apenas uma porcentagem do que efetivamente entrar no caixa do conselho. Isso elimina a resistência inicial do cliente, alinha incentivos e permite validar a operação com dados reais sem custo fixo para nenhum dos lados.</p>
+  </div>
+  <div class="three" style="margin-bottom:12px;">
+    <div class="card" style="border:2px solid #AFA9EC;">
+      <span class="pill pp" style="margin:0 0 8px; font-size:10px; display:block; width:fit-content;">Recomendado — piloto</span>
+      <p class="ct">Fee de sucesso puro</p>
+      <p style="font-size:24px; font-weight:500; color:#3C3489; margin-bottom:6px;">15–25%</p>
+      <p class="cb">Do valor efetivamente recuperado e confirmado. Zero custo fixo para o CREA-SP. Você ganha só quando performa.</p>
+    </div>
+    <div class="card">
+      <p class="ct">SaaS + performance</p>
+      <p style="font-size:20px; font-weight:500; margin-bottom:6px;">Fixo + 10%</p>
+      <p class="cb">Mensalidade pela plataforma mais percentual menor sobre o recuperado. Cria receita previsível. Para fase pós-piloto.</p>
+      <span class="pill pgr">Fase 2</span>
+    </div>
+    <div class="card">
+      <p class="ct">Cessão de carteira</p>
+      <p style="font-size:20px; font-weight:500; margin-bottom:6px;">Deságio</p>
+      <p class="cb">Comprar a carteira com desconto e ficar com todo o recuperado. Exige capital próprio. Maior risco e maior retorno.</p>
+      <span class="pill pgr">Fase 3</span>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Como negociar o percentual — referências do mercado</p>
+    <div style="margin-top:6px;">
+      <div class="row"><span class="rk">Dívidas com até 2 anos</span><span class="rv">15% (mais fáceis de recuperar)</span></div>
+      <div class="row"><span class="rk">Dívidas com 3 a 4 anos</span><span class="rv">20% (exigem esforço e desconto)</span></div>
+      <div class="row"><span class="rk">Dívidas próximas da prescrição</span><span class="rv">25% (risco alto, urgência máxima)</span></div>
+      <div class="row"><span class="rk">Carteiras mistas (média geral)</span><span class="rv">18–22%</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Simulador de retorno do piloto</p>
+    <div style="margin-top:10px;">
+      <div class="sl-row"><span class="sl">Devedores na carteira</span><input type="range" min="5000" max="80000" step="1000" value="30000" id="s1" oninput="calc()"><span class="sv" id="v1">30.000</span></div>
+      <div class="sl-row"><span class="sl">Ticket médio da dívida (R$)</span><input type="range" min="400" max="2500" step="50" value="900" id="s2" oninput="calc()"><span class="sv" id="v2">R$ 900</span></div>
+      <div class="sl-row"><span class="sl">Taxa de conversão em acordos</span><input type="range" min="5" max="35" step="1" value="15" id="s3" oninput="calc()"><span class="sv" id="v3">15%</span></div>
+      <div class="sl-row"><span class="sl">Seu fee de sucesso</span><input type="range" min="10" max="28" step="1" value="20" id="s4" oninput="calc()"><span class="sv" id="v4">20%</span></div>
+      <div class="rgrid">
+        <div class="rbox"><p class="rlab">Acordos fechados</p><p class="rbig" id="r1">4.500</p></div>
+        <div class="rbox"><p class="rlab">Recuperado pelo CREA-SP</p><p class="rbig" id="r2">R$ 4M</p></div>
+        <div class="rbox"><p class="rlab">Receita da sua startup</p><p class="rbig" id="r3">R$ 810k</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Cláusulas críticas no contrato de fee de sucesso</p>
+    <div style="margin-top:6px;">
+      <div class="row"><span class="rk">Definição de "acordo fechado"</span><span class="rv">Pagamento confirmado em conta do CREA-SP</span></div>
+      <div class="row"><span class="rk">Prazo de apuração</span><span class="rv">Quinzenal ou mensal com relatório</span></div>
+      <div class="row"><span class="rk">Duração do piloto</span><span class="rv">90 dias com renovação automática</span></div>
+      <div class="row"><span class="rk">Exclusividade da carteira</span><span class="rv">Segmento definido — sem sobreposição</span></div>
+      <div class="row"><span class="rk">Abordagem aprovada</span><span class="rv">Scripts aprovados pelo CREA-SP</span></div>
+      <div class="row"><span class="rk">LGPD</span><span class="rv">DPA assinado — CREA controlador, startup operadora</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABA 3 -->
+<div id="tech" class="pg">
+  <div class="hl">
+    <p class="ht">Stack montado para escalar — sem time operacional grande</p>
+    <p class="hb">A vantagem competitiva não está em ter mais gente no telefone — está em usar tecnologia para fazer o trabalho de 50 atendentes com 3 pessoas. O stack abaixo cobre da ingestão da base até a confirmação do pagamento, com IA em cada etapa que importa.</p>
+  </div>
+  <div class="card">
+    <p class="ct">Camada 1 — dados e inteligência</p>
+    <div style="margin-top:6px;">
+      <div class="tc">
+        <div class="tic" style="background:#EEEDFE; color:#3C3489;">01</div>
+        <div>
+          <p class="tct">Enriquecimento cadastral</p>
+          <p class="tcb">Atualizar telefones celulares, confirmar WhatsApp ativo, validar e-mails de toda a carteira antes do primeiro disparo. Sem isso, você gasta comunicando no vazio.</p>
+          <span class="pill pp">Unitfour</span><span class="pill pp">PH3A</span><span class="pill pp">Assertiva</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tic" style="background:#EEEDFE; color:#3C3489;">02</div>
+        <div>
+          <p class="tct">Scoring preditivo de propensão</p>
+          <p class="tcb">Modelo que rankeia quem tem mais chance de pagar hoje. No MVP: regras simples por tempo de dívida e valor. Em 3 meses: machine learning com seus dados reais de conversão.</p>
+          <span class="pill pp">Scikit-learn</span><span class="pill pp">XGBoost</span><span class="pill pgr">Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Camada 2 — comunicação e negociação automatizada</p>
+    <div style="margin-top:6px;">
+      <div class="tc">
+        <div class="tic" style="background:#E1F5EE; color:#0F6E56;">03</div>
+        <div>
+          <p class="tct">WhatsApp Business API</p>
+          <p class="tcb">Canal principal — 77% das negociações já acontecem digitalmente. Disparo de mensagens personalizadas com nome, valor exato e link único de negociação. Não é spam: é comunicação 1-to-1 automatizada.</p>
+          <span class="pill pt">Twilio</span><span class="pill pt">Zenvia</span><span class="pill pt">Take Blip</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tic" style="background:#E1F5EE; color:#0F6E56;">04</div>
+        <div>
+          <p class="tct">Agente de negociação com LLM</p>
+          <p class="tcb">Quando o devedor responde no WhatsApp, um agente de IA conversa, propõe parcelamento e fecha o acordo — 24h por dia, sem custo de atendente. Transfere para humano apenas em casos complexos.</p>
+          <span class="pill pp">Claude API</span><span class="pill pp">GPT-4o</span><span class="pill pg2">n8n / Make</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tic" style="background:#E1F5EE; color:#0F6E56;">05</div>
+        <div>
+          <p class="tct">Automação de e-mail e SMS</p>
+          <p class="tcb">Régua complementar: e-mail com boleto/PIX e detalhamento da dívida; SMS como lembrete curto. Disparo sequencial inteligente — não bate no mesmo canal sem resposta.</p>
+          <span class="pill pt">Brevo</span><span class="pill pt">Customer.io</span><span class="pill pt">Zenvia SMS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Camada 3 — conversão e pagamento</p>
+    <div style="margin-top:6px;">
+      <div class="tc">
+        <div class="tic" style="background:#FAEEDA; color:#854F0B;">06</div>
+        <div>
+          <p class="tct">Portal self-service do devedor</p>
+          <p class="tcb">Landing page personalizada via link único: mostra a dívida, simula parcelamento, exibe descontos e permite pagar via PIX ou boleto sem falar com ninguém. Experiência fluida, sem atrito.</p>
+          <span class="pill pa">React / Next.js</span><span class="pill pa">Link único por CPF</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tic" style="background:#FAEEDA; color:#854F0B;">07</div>
+        <div>
+          <p class="tct">Gateway de pagamentos</p>
+          <p class="tcb">PIX (confirmação via webhook instantâneo), boleto e cartão parcelado. Ao confirmar o pagamento, o sistema notifica o CREA-SP automaticamente para regularizar o registro.</p>
+          <span class="pill pa">Asaas</span><span class="pill pa">EFÍ / Gerencianet</span><span class="pill pa">PJBank</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <p class="ct">Camada 4 — gestão e transparência para o cliente</p>
+    <div style="margin-top:6px;">
+      <div class="tc">
+        <div class="tic" style="background:#F1EFE8; color:#5F5E5A;">08</div>
+        <div>
+          <p class="tct">CRM de cobrança</p>
+          <p class="tcb">Gestão da carteira: importação dos inadimplentes, histórico de cada contato, registro de acordos e status de pagamento. Começa simples (Airtable) e evolui para plataforma própria.</p>
+          <span class="pill pgr">Neofin</span><span class="pill pgr">IntelliDebt</span><span class="pill pgr">Airtable</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tic" style="background:#F1EFE8; color:#5F5E5A;">09</div>
+        <div>
+          <p class="tct">Dashboard do CREA-SP</p>
+          <p class="tcb">Painel em tempo real para o conselho: volume de acordos, taxa de recuperação, curva acumulada por semana, ranking de canais. Transparência total = confiança e renovação do contrato.</p>
+          <span class="pill pgr">Metabase</span><span class="pill pgr">Retool</span><span class="pill pgr">Looker Studio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card alert">
+    <p class="ct" style="color:#A32D2D;">Alerta LGPD — uso de LLM com dados pessoais</p>
+    <p class="cb">Nunca envie CPF, nome ou valor de dívida diretamente para APIs de LLM externas. A arquitetura correta: seu sistema guarda os dados pessoais e envia ao modelo apenas contexto anonimizado — "devedor com R$X em atraso há Y meses, respondeu que não tem condições". A resposta é então aplicada de volta ao contexto real no seu sistema.</p>
+  </div>
+  <div class="card">
+    <p class="ct">Custo estimado do stack no piloto (90 dias)</p>
+    <div style="margin-top:6px;">
+      <div class="row"><span class="rk">APIs de enriquecimento de dados</span><span class="rv">R$ 3.000–8.000</span></div>
+      <div class="row"><span class="rk">WhatsApp API + disparos</span><span class="rv">R$ 2.000–5.000</span></div>
+      <div class="row"><span class="rk">API de LLM (Claude / GPT-4o)</span><span class="rv">R$ 500–2.000</span></div>
+      <div class="row"><span class="rk">E-mail + SMS</span><span class="rv">R$ 800–2.000</span></div>
+      <div class="row"><span class="rk">Gateway de pagamentos</span><span class="rv">Taxa por transação (~2%)</span></div>
+      <div class="row"><span class="rk">Infraestrutura cloud</span><span class="rv">R$ 500–1.500</span></div>
+      <div class="row" style="font-weight:500;"><span>Total estimado</span><span>R$ 7.000–18.500</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function sw(id) {
+  document.querySelectorAll('.pg').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  event.target.classList.add('on');
+}
+function fmt(n) {
+  if (n >= 1000000) return 'R$ ' + (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000) return 'R$ ' + Math.round(n / 1000) + 'k';
+  return 'R$ ' + Math.round(n);
+}
+function calc() {
+  const d = +document.getElementById('s1').value;
+  const t = +document.getElementById('s2').value;
+  const c = +document.getElementById('s3').value / 100;
+  const f = +document.getElementById('s4').value / 100;
+  document.getElementById('v1').textContent = d.toLocaleString('pt-BR');
+  document.getElementById('v2').textContent = 'R$ ' + t.toLocaleString('pt-BR');
+  document.getElementById('v3').textContent = Math.round(c * 100) + '%';
+  document.getElementById('v4').textContent = Math.round(f * 100) + '%';
+  const acordos = Math.round(d * c);
+  const total = acordos * t;
+  document.getElementById('r1').textContent = acordos.toLocaleString('pt-BR');
+  document.getElementById('r2').textContent = fmt(total);
+  document.getElementById('r3').textContent = fmt(total * f);
+}
+calc();
+</script>
+</body>
+</html>
